@@ -27,10 +27,10 @@ let myObj = {
   age: 23,
 };
 const myFunction = function () {
-    console.log("Hello");
-}
+  console.log("Hello");
+};
 
-console.log(typeof bigNumber)
+console.log(typeof bigNumber);
 
 // ************  Typeof Oprator Result **********
 
@@ -47,3 +47,22 @@ Object -> "object"
 Array -> "object"
 
 */
+
+// Stack(Primitive)(copy) , Heap(Non Primitive)(Referance - every changing happen in original variable)
+
+let myYoutubeName = "VrajPanchal";
+let myYoutubeName2 = myYoutubeName;
+myYoutubeName2 = "Shefali Panchal";
+
+console.log(myYoutubeName2);
+console.log(myYoutubeName);
+
+let userOne = {
+  email: "userone@gmail.com",
+  upi: "user@ybl.ca",
+};
+
+let userTwo = userOne;
+userTwo.email = "vraj@gmail.com";
+console.log(userOne.email);
+console.log(userTwo.email);
