@@ -43,25 +43,28 @@ const users = [
     id: 1,
     name: "vraj",
     email: "c@gmail.com",
-  }, {
+  },
+  {
     id: 1,
     name: "vraj",
     email: "c@gmail.com",
-  }, {
+  },
+  {
     id: 1,
     name: "vraj",
     email: "c@gmail.com",
-  }, {
+  },
+  {
     id: 1,
     name: "vraj",
     email: "c@gmail.com",
-  }, {
+  },
+  {
     id: 1,
     name: "vraj",
     email: "c@gmail.com",
   },
 ];
-
 
 console.log(tinderUser);
 console.log(Object.keys(tinderUser)); //! Datatype is array
@@ -69,3 +72,25 @@ console.log(Object.values(tinderUser)); //! Datatype is array
 console.log(Object.entries(tinderUser)); //! Datatype is array
 
 console.log(tinderUser.hasOwnProperty("id"));
+
+// Object Destructure
+
+const course = {
+  courseName: "JS in Hindi",
+  price: "999",
+  courseInstructure: "Vraj Panchal",
+};
+
+// course.courseName
+const { courseInstructure : instructor} = course;
+console.log(instructor);
+
+// {
+  // "name": "vraj",
+    // "courseName": "JS in Hindi",
+      // "price":"999"
+// }
+// 
+// [
+  // {},{}
+// ]
