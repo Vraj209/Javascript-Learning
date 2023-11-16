@@ -1,0 +1,53 @@
+<!-- 
+    document.getElementById('id').setAttribute('class', 'new-class'); always override the existing class
+
+   Diffrence between title.innerText and title.textContent
+    title.innerText will not show the hidden text
+    title.textContent will show the hidden text
+
+    querySelector() will return the first element that matches a specified CSS selector(s) in the document.
+    HTMLCollection is a collection of HTML elements. It is an array-like object. but no Array methods can be used on it directly.
+    NodeList is also a collection of HTML elements. It is also an array-like object. but no Array methods can be used on it directly.
+
+    Array.from() method creates a new, shallow-copied Array instance from an array-like or iterable object.
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Learning</title>
+    <style>
+      .bg-black {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body class="bg-black">
+    <div class="bg-black">
+      <h1 id="title" class="heading">
+        DOM Learning <span style="display: none"> test</span>
+      </h1>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed
+        doloremque, enim impedit libero quam quidem est! Sequi odio odit ipsa
+        labore architecto quos eum fugit ab amet non! Ea, laborum.
+      </p>
+      <h1>Lorem ipsum dolor sit amet.</h1>
+      <h2>Lorem ipsum dolor sit.</h2>
+      <h2>Lorem ipsum dolor sit.</h2>
+      <h2>Lorem ipsum dolor sit.</h2>
+      <h2>Lorem ipsum dolor sit.</h2>
+      <h2>Lorem ipsum dolor sit.</h2>
+
+      <ul>
+        <li class="list-item">one</li>
+        <li class="list-item">two</li>
+        <li class="list-item">three</li>
+        <li class="list-item">four</li>
+      </ul>
+    </div>
+  </body>
+</html>
