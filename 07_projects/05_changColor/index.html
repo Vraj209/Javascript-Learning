@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Press Start to change color And Press stop to stop the color</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    function changeRandomColor() {
+      let r = Math.floor(Math.random() * 255);
+      let g = Math.floor(Math.random() * 255);
+      let b = Math.floor(Math.random() * 255);
+      const changeRandomColor = `rgb(${r},${g},${b})`;
+      document.body.style.backgroundColor = `${changeRandomColor}`;
+    }
+   
+    
+    document.querySelector("#start").addEventListener("click", function () {
+      const id = setInterval(changeRandomColor, 2000);
+      console.log("STARTED");
+      document.querySelector("#stop").addEventListener("click", function () {
+        clearInterval(id);
+        console.log("STOPPED");
+      });
+    });
+  </script>
+</html>
