@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+      .card {
+        width: 300px;
+        height:500px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        border-radius: 5px; /* 5px rounded corners */
+      }
+
+      /* Add rounded corners to the top left and the top right corner of the image */
+      img {
+        width: 100px;
+        height:300px;
+        border-radius: 5px 5px 0 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <table>
+        <tr>
+          <th>Value</th>
+          <th>State</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>UNSENT</td>
+          <td>Client has been created. open() not called yet.</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>OPENED</td>
+          <td>open() has been called.</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>HEADERS_RECEIVED</td>
+          <td>send() has been called, and headers and status are available.</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>LOADING</td>
+          <td>Downloading; responseText holds partial data.</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>DONE</td>
+          <td>The operation is complete.</td>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <p>Getting data from the url</p>
+      <div class="card">
+        <!-- <img src=`${img_url}` alt="Avatar" style="width: 100%" />
+        <div class="container">
+          <h4><b>`${login_name}`</b></h4>
+          <p></p> -->
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const requestUrl = "https://api.github.com/users/vraj209";
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", requestUrl);
+    // for continous monitoring
+    // response came into string
+    xhr.onreadystatechange = function () {
+      console.log(xhr.readyState);
+      if (xhr.readyState === 4) {
+        const data = JSON.parse(this.responseText);
+        console.log(typeof data);
+        let followers = data.followers;
+        // console.log(data.followers);
+        let img_url = data.avatar_url;
+        // console.log(data.avatar_url);
+        let login_name = data.login;
+        let bio_data = data.bio;
+        // console.log(data.login);
+document.querySelector(".card").innerHTML =
+`
+<img src=${img_url} alt="Avatar" style="width: 100%" />
+        <div class="container">
+          <h4><b>Username : </b>${login_name}</h4>
+          <p><b>Followers : </b>${followers}</p> 
+          <p><b>Description : </b>${bio_data}</p>
+`;
+      }
+    };
+    xhr.send(); // open reqest send
+  </script>
+</html>
