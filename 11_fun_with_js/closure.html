@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+  </body>
+  <script>
+    // function init() {
+    //   let name = "mozila";
+    //   function dislpayName() {
+    //     console.log(name);
+    //   }
+    //   dislpayName();
+    // }
+    // init();
+
+    function outter() {
+      let username = "vraj";
+      // console.log(secret); -> ERROR
+
+      function inner() {
+        let secret = "123";
+        console.log("Inner", username);
+      }
+      function innerTwo() {
+        console.log("Inner two", username);
+        // console.log(secret); -> ERROR
+      }
+      inner();
+      innerTwo();
+    }
+    outter();
+    // console.log("Too Outer",username); ERROR
+  </script>
+  <script>
+    // document.getElementById("orange").onclick = function () {
+    //   document.body.style.backgroundColor = `orange`;
+    // };
+    // document.getElementById("green").onclick = function () {
+    //   document.body.style.backgroundColor = `green`;
+    // };
+
+    function colorHandler(color) {
+      return function () {
+        document.body.style.backgroundColor = `${color}`;
+      };
+    }
+
+    document.getElementById("green").onclick = colorHandler("green");
+    document.getElementById("orange").onclick = colorHandler("orange");
+  </script>
+</html>
